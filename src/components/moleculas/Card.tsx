@@ -1,14 +1,15 @@
 import { Button, buttonColorEnum, buttonFloatEnum, buttonSizeEnum, fontColorEnum, fontSizeEnum } from "../atoms/Button/Button";
-import { Image } from "../atoms/Image";
+import { Image } from "../atoms/Image/Image";
 import { useNavigate } from "react-router-dom";
 
 export interface CardProps {
-    cardId: number,
-    cardName: string;
-    cardCategory: string;
-    cardPrice: number;
-    cardDescription: string;
-    imagePathURL: string;
+    cardId?: number,
+    cardName?: string;
+    cardCategory?: string;
+    cardPrice?: number;
+    cardDescription?: string;
+    imagePathURL?: string;
+    buttonText?: string;
 }
 export const Card = (props: CardProps) => {
     const navigate = useNavigate();
@@ -38,7 +39,7 @@ export const Card = (props: CardProps) => {
                         <p className="text-gray-500">{props.cardDescription}</p>
 
                     
-                    <Button buttonColor={buttonColorEnum.Indigo} fontColor={fontColorEnum.Indigo} fontSize={fontSizeEnum.Base} buttonSize={buttonSizeEnum.Small} float={buttonFloatEnum.Right} onClickEvent={onClickHandle} value ="Buy"></Button>
+                    <Button buttonColor={buttonColorEnum.Indigo} fontColor={fontColorEnum.Indigo} fontSize={fontSizeEnum.Base} buttonSize={buttonSizeEnum.Small} float={buttonFloatEnum.Right} onClickEvent={onClickHandle} value ={props.buttonText ? props.buttonText : "Buy"}></Button>
                     
                         
                     </div>

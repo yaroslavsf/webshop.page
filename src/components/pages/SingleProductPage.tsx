@@ -3,7 +3,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, buttonSizeEnum } from '../atoms/Button/Button';
-import { Image } from '../atoms/Image';
+import { Image } from '../atoms/Image/Image';
 
 export interface ProductLittle {
     id: number;
@@ -53,8 +53,8 @@ const SingleProductPage = () => {
                         <div className="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
                             <div className="xl:w-3/5 flex flex-col sm:flex-row xl:flex-col justify-center items-center bg-gray-100 py-7 sm:py-0 xl:py-10 px-10 xl:w-full">
                                 <div className="flex flex-col justify-start items-start w-full space-y-4">
-                                    <p className="text-xl md:text-2xl leading-normal text-gray-800">{product ? product.name : "undefined"}</p>
-                                    <p className="text-base font-semibold leading-none text-gray-600">{product ? product.name : "undefined"}</p>
+                                    <p id="name-id" className="text-xl md:text-2xl leading-normal text-gray-800">{product ? product.name : "undefined"}</p>
+                                    <p id="littleDescription-id" className="text-base font-semibold leading-none text-gray-600">{product ? product.littleDescription : "undefined"}</p>
                                 </div>  
                                 <div className="mt-6 sm:mt-0 xl:my-10 xl:px-20 w-56 sm:w-auto xl:w-full">
                                     <Image width='full' height='full' imagePathURL={product ? product.imagePathURL : "undefined"}/>
@@ -64,10 +64,10 @@ const SingleProductPage = () => {
                             <div className="p-8 bg-gray-100 flex flex-col lg:w-full xl:w-3/5">
 
                                 <div className="mt-2">
-                                    <h5 className=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                                    <h5 id="price-id"  className=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product ? product.price : "undefined"} $</h5>
                                 </div>
-                                <div className="mt-1">
-                                    Category
+                                <div className="mt-1" id="category-id" >
+                                {product ? product.category : "undefined"}
                                 </div>
 
                                 <div className="flex flex-row justify-center items-center mt-6">
@@ -76,13 +76,13 @@ const SingleProductPage = () => {
                                     <hr className="border w-full" />
                                 </div>
 
-
+                                <p id="condition-id" className="text-xl md:text-2xl leading-normal text-gray-800">Condition: {product ? product.condition : "undefined"}</p>
                                 <div className="flex flex-col justify-between  mt-6">
 
                                     <div className="mt-2 flex-col">
 
 
-                                        <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                                        <p id="fullDescription-id"  className="font-normal text-gray-700 dark:text-gray-400">{product ? product.fullDescription : "undefined"}</p>
 
                                     </div>
 
