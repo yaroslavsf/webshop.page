@@ -1,0 +1,111 @@
+import axios from 'axios';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Button, buttonSizeEnum } from '../atoms/Button/Button';
+import { Image } from '../atoms/Image';
+
+export interface ProductLittle {
+    id: number;
+    name: string;
+    category: string;
+    price: number;
+    littleDescription: string;
+    imagePathURL: string;
+}
+
+export interface ProductFull extends ProductLittle {
+    condition: string;
+    fullDescription: string;
+}
+
+
+// const SingleProductPage = (props: SinglePageProps) => {
+const SingleProductPage = () => {
+    let { id } = useParams();
+    const [product, setProduct] = React.useState<ProductFull>()
+
+    const navigate = useNavigate();
+
+   
+    
+
+    useEffect(() => {
+
+        axios.get(`http://localhost:5500/products/${id}`)
+            .then(response => {
+                setProduct(response.data)               
+            })
+            .catch(error => {
+                console.error('Login on get a card', error);
+                navigate(`/not_found`);
+            });
+    }, [])
+
+    return (
+        <>
+
+            <div className="flex justify-center items-center">
+                <div className="py-5  md:px-6 2xl:px-0 flex justify-center items-center ">
+                    <div className="flex flex-col justify-start items-start w-11/12 ">
+                        
+
+                        <div className="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
+                            <div className="xl:w-3/5 flex flex-col sm:flex-row xl:flex-col justify-center items-center bg-gray-100 py-7 sm:py-0 xl:py-10 px-10 xl:w-full">
+                                <div className="flex flex-col justify-start items-start w-full space-y-4">
+                                    <p className="text-xl md:text-2xl leading-normal text-gray-800">{product ? product.name : "undefined"}</p>
+                                    <p className="text-base font-semibold leading-none text-gray-600">{product ? product.name : "undefined"}</p>
+                                </div>  
+                                <div className="mt-6 sm:mt-0 xl:my-10 xl:px-20 w-56 sm:w-auto xl:w-full">
+                                    <Image width='full' height='full' imagePathURL={product ? product.imagePathURL : "undefined"}/>
+                                </div>
+                            </div>
+
+                            <div className="p-8 bg-gray-100 flex flex-col lg:w-full xl:w-3/5">
+
+                                <div className="mt-2">
+                                    <h5 className=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                                </div>
+                                <div className="mt-1">
+                                    Category
+                                </div>
+
+                                <div className="flex flex-row justify-center items-center mt-6">
+                                    <hr className="border w-full" />
+                                    <p className="flex flex-shrink-0 px-4 text-base leading-4 text-gray-600">Description</p>
+                                    <hr className="border w-full" />
+                                </div>
+
+
+                                <div className="flex flex-col justify-between  mt-6">
+
+                                    <div className="mt-2 flex-col">
+
+
+                                        <p className="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+
+                                    </div>
+
+
+
+                                <div className='mt-8'>
+                                    <Button value='Buy' buttonSize={buttonSizeEnum.Large}></Button>
+                                    
+                                    </div>{/* <button className="mt-8 border border-transparent hover:border-gray-300 bg-gray-900 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
+                                        <div>
+                                            <p className="text-base leading-4">Buy</p>
+                                        </div>
+                                    </button> */}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+
+    )
+};
+
+export default SingleProductPage;

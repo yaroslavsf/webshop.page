@@ -1,6 +1,7 @@
 {
     "shoes":[
 {
+    "cardId" : 1,
     "cardName": "Nike CPFM Flea 1",
     "cardCategory": "Sneakers",
     "cardPrice": 284,
@@ -8,6 +9,7 @@
     "imagePathURL": "https://images.stockx.com/images/Nike-Dunk-Low-Cactus-Plant-Flea-Market-Grinch.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1660682148&q=75"
 },
 {
+    "cardId" : 2,
     "cardName": "Nike Dunk High",
     "cardCategory": "Sneakers",
     "cardPrice": 117,
@@ -15,6 +17,7 @@
     "imagePathURL": "https://images.stockx.com/images/Nike-SB-Dunk-Low-Concepts-Orange-Lobster-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1669707108&q=75"
 },
 {
+    "cardId" : 3,
     "cardName": "asdasdfsdf",
     "cardCategory": "Sneakers",
     "cardPrice": 284,
@@ -22,6 +25,7 @@
     "imagePathURL": "https://images.stockx.com/images/Nike-Dunk-Low-Cactus-Plant-Flea-Market-Grinch.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1660682148&q=75"
 },
 {
+    "cardId" : 4,
     "cardName": "Nike CPFM Flea 1",
     "cardCategory": "Sneakers",
     "cardPrice": 284,
@@ -29,6 +33,7 @@
     "imagePathURL": "https://images.stockx.com/images/Nike-Dunk-Low-Retro-White-Black-GS-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1613360456&q=75"
 },
 {
+    "cardId" : 5,
     "cardName": "Nike CPFM Flea 1",
     "cardCategory": "Sneakers",
     "cardPrice": 123,
@@ -36,6 +41,7 @@
     "imagePathURL": "https://images.stockx.com/images/Nike-Dunk-Low-SP-Kentucky_Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1606322330&q=75"
 },
 {
+    "cardId" : 100,
     "cardName": "Nike Dunk",
     "cardCategory": "Sneakers",
     "cardPrice": 345,
@@ -43,6 +49,7 @@
     "imagePathURL": "https://images.stockx.com/images/Nike-Dunk-Low-Cactus-Plant-Flea-Market-Grinch.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1660682148&q=75"
 },
 {
+    "cardId" : 7,
     "cardName": "Nike CPFM Flea 1",
     "cardCategory": "Sneakers",
     "cardPrice": 115,
@@ -50,6 +57,7 @@
     "imagePathURL": "https://images.stockx.com/images/Nike-Dunk-Low-USC-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1660311144&q=75"
 },
 {
+    "cardId" : 8,
     "cardName": "Nike CPFM Flea 1",
     "cardCategory": "Sneakers",
     "cardPrice": 284,
@@ -57,6 +65,7 @@
     "imagePathURL": "https://images.stockx.com/images/Nike-Dunk-Low-Cactus-Plant-Flea-Market-Grinch.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1660682148&q=75"
 },
 {
+    "cardId" : 9,
     "cardName": "Nike CPFM Flea 1",
     "cardCategory": "Sneakers",
     "cardPrice": 284,
