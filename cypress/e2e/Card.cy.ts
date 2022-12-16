@@ -2,7 +2,7 @@ import cypress from "cypress";
 
 describe('empty spec', () => {
   it('click on product page triggers the api call, make sure data api is right', () => {
-    cy.visit('http://localhost:3000/products');
+    cy.visit('/products');
     const button = cy.contains('Buy').first()
     button.click()
     const name = cy.get('p[id="name-id"]').should('have.text', 'Nike CPFM Flea 1')
