@@ -14,3 +14,15 @@ describe('empty spec', () => {
     const condition = cy.get('p[id="condition-id"]').should('have.text', 'Condition: New')
   })
 })
+/*
+{
+        id : 1,
+        name : "Nike CPFM Flea 1",
+        condition: "New",
+        category: "Sneakers",
+        price: 284,
+        littleDescription: "Cactus Plant Flea",
+        fullDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged",
+        imagePathURL: "https://images.stockx.com/images/Nike-Dunk-Low-Cactus-Plant-Flea-Market-Grinch.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=2&trim=color&updated_at=1660682148&q=75"
+}
+*/
