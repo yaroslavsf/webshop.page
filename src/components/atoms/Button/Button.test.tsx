@@ -1,14 +1,13 @@
 import React from 'react'
+// const {shallow} = require('enzyme')
+import { shallow } from 'enzyme';
 // import Enzyme, {shallow} from 'enzyme';
-const Enzyme = require('enzyme')
-const {shallow} = require('enzyme')
-// import { shallow } from 'enzyme';
+// const Enzyme = require('enzyme')
+// const {shallow} = require('enzyme')
 // import { EnzymeAdapter } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+// import Adapter from 'enzyme-adapter-react-16';
 import { Button } from './Button';
 // import ReactSixteenAdapter from 'enzyme-adapter-react-16';
-
-Enzyme.configure({adapter: new Adapter()});
 
 describe('Button', () => {
     it('should work onclick', () => {
