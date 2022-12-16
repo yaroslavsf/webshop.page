@@ -2,8 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, buttonSizeEnum } from '../atoms/Button/Button';
-import { Image } from '../atoms/Image/Image';
+import { Button, buttonSizeEnum } from '../../atoms/Button/Button';
+import { Image } from '../../atoms/Image/Image';
 
 export interface ProductLittle {
     id: number;

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { array } from 'prop-types';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Card } from '../moleculas/Card'
+import { Card } from '../../moleculas/Card'
 import { ProductLittle } from './SingleProductPage';
 
 export const ProductsPage = () => {
@@ -18,7 +18,7 @@ export const ProductsPage = () => {
             .then(response => {
                 
                 setCards(response.data[0])
-                console.log(cards)
+                // console.log(cards)
             })
             .catch(error => {
                 console.error('Login error handle submit', error);

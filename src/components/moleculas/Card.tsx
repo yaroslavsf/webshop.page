@@ -15,7 +15,7 @@ export const Card = (props: CardProps) => {
     const navigate = useNavigate();
 
     async function onClickHandle() {
-        console.log("on submit navigate")
+        // console.log("on submit navigate")
         navigate(`/products/${props.cardId}`);
     }
 
