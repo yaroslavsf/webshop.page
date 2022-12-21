@@ -1,8 +1,22 @@
 import { Formik, Form } from "formik";
 import { TextField } from "../moleculas/TextField";
 import * as Yup from "yup"
+import axios, { AxiosRequestConfig } from "axios";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-export const LoginForm = () => {
+export interface formikFormProperties {
+    email: string,
+    password: string
+}
+
+interface LoginFormProps {
+    onSubmitHandle: (values: formikFormProperties) => void
+}
+
+export const LoginForm = (props:LoginFormProps) => {
+   
+
     const validate = Yup.object({
         email: Yup.string()
             // .max(15, "must be less then 15 characters")
@@ -13,8 +27,12 @@ export const LoginForm = () => {
         password: Yup.string()
             .required('Required')
             .min(8, 'Password is too short - should be 8 chars minimum.')
-            .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
+            .matches(/^[A-Za-z0-9]*$/, 'Password can only contain Latin letters.')
     });
+
+   
+    
+
     return (
         <>
             <Formik
@@ -23,7 +41,8 @@ export const LoginForm = () => {
                     password: ""
                 }}
                 validationSchema={validate}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={props.onSubmitHandle}
+                // onSubmit={(values) => console.log(values)}
             >
                 {(formik) => {
                     // console.log(formik.values);
