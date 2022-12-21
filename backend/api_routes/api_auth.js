@@ -3,8 +3,9 @@ const users = require("./data/users")
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const TOKEN_KEY = "qwe"
-// const productsLittleInfo = require('./data/productsLittleInfo')
-// const productsFullInfo = require('./data/productsFullInfo')
+
+
+
 //1 API-EP for getting list of all users
 router.route('/login').post((req, res) => {
    // Our login logic starts here
@@ -21,18 +22,18 @@ router.route('/login').post((req, res) => {
     if (user && (bcrypt.compare(password, user.password))) {
       // Create token
       const token = jwt.sign(   
-        { user_id: user._id, email },
+        { user_id: user.id, emal:  user.email,role: user.role },
         TOKEN_KEY,
         {
           expiresIn: "2h",
         }
       );
-
+      console.log(jwt.verify(token, TOKEN_KEY));
       // save user token
     
       user.token = token;
       // user
-      res.status(200).json(user);
+      res.status(200).json(token);
     } else
     res.status(400).send("Invalid Credentials");
   } catch (err) {
@@ -52,4 +53,4 @@ router.route('/a').get((req, response) => {
 })
 // productsFullInfo[req.params.id]
 
-module.exports = router
+module.exports = router;
