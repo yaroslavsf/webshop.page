@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -26,19 +26,26 @@ const SingleProductPage = () => {
     const [product, setProduct] = React.useState<ProductFull>()
 
     const navigate = useNavigate();
-
-   
+    const token = localStorage.getItem('token');
     
-
+    const options: AxiosRequestConfig = {
+        headers: {
+          'Content-Type': 'application/json',
+          'token' :  token
+        },
+      };
     useEffect(() => {
 
-        axios.get(`http://localhost:5500/products/${id}`)
+        axios.get(`http://localhost:5500/products/${id}`, options)
             .then(response => {
                 setProduct(response.data)               
             })
             .catch(error => {
+                if (error.response.status === 401) {
+                    navigate(`/auth/login`);
+                }
                 console.error('Login on get a card', error);
-                navigate(`/not_found`);
+                navigate('/not_found')
             });
     }, [])
 

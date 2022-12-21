@@ -16,7 +16,8 @@ export const LoginPage = () => {
         axios.post('http://localhost:5500/auth/login', values, options)
             .then(response => {
                 //save here in the context the user credentials
-                
+                localStorage.setItem('token', response.data);
+                // console.log(response.data)
                 navigate(`/products`);
             })
             .catch(error => {
