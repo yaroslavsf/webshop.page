@@ -11,9 +11,10 @@ app.use(express.json()) //api endpoint in JSON
 
 //api rotes register
 const productsRouter = require('./api_routes/api_products')
+const userRouter = require('./api_routes/api_auth')
 
 app.use('/products', productsRouter)
-
+app.use('/auth', userRouter)
 
 app.listen(port, () => {
     console.log(`server is running on port${port}`)
