@@ -6,7 +6,7 @@ const TOKEN_KEY = "qwe"
 // const productsLittleInfo = require('./data/productsLittleInfo')
 // const productsFullInfo = require('./data/productsFullInfo')
 //1 API-EP for getting list of all users
-router.route('/').post((req, res) => {
+router.route('/login').post((req, res) => {
    // Our login logic starts here
   try {
     // Get user input
