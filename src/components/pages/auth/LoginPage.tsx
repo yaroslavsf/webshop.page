@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { useNavigate } from "react-router-dom";
 import { formikFormProperties, LoginForm } from "../../organisms/LoginForm";
+import { postUserLogin } from "../../services/authService";
 
 
 export const LoginPage = () => {
@@ -8,20 +9,16 @@ export const LoginPage = () => {
     const options: AxiosRequestConfig = {
         headers: {
           'Content-Type': 'application/json',
-          //token as well
         },
       };
   
     const onSubmitHandle = (values: formikFormProperties) => {
-        axios.post('http://localhost:5500/auth/login', values, options)
+        postUserLogin(values)
             .then(response => {
-                //save here in the context the user credentials
                 localStorage.setItem('token', response.data);
-                // console.log(response.data)
                 navigate(`/products`);
             })
-            .catch(error => {
-                
+            .catch(error => {             
                 console.error('Login error handle submit', error);
             });
     }

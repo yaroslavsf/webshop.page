@@ -4,6 +4,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../../moleculas/Card'
+import { getAllProducts } from '../../services/productsService';
 import { ProductLittle } from './SingleProductPage';
 
 export const ProductsPage = () => {
@@ -24,19 +25,20 @@ export const ProductsPage = () => {
 
     useEffect(() => {
 
-        axios.get('http://localhost:5500/products', options)
+        getAllProducts(token)
             .then(response => {
-                
                 setCards(response.data[0])
-                // console.log(cards)
             })
             .catch(error => {
                 if (error.response.status === 401) {
                     navigate(`/auth/login`);
+                } else {
+                    console.error('Login on get a card', error);
+                    navigate('/not_found')
                 }
-                console.error('Login on get a card', error);
-                navigate('/not_found')
             });
+
+        
     }, [])
 
     return (
