@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, buttonSizeEnum } from '../../atoms/Button/Button';
 import { Image } from '../../atoms/Image/Image';
+import { getProductById } from '../../services/productsService';
 
 export interface ProductLittle {
     id: number;
@@ -20,33 +21,24 @@ export interface ProductFull extends ProductLittle {
 }
 
 
-// const SingleProductPage = (props: SinglePageProps) => {
 const SingleProductPage = () => {
     let { id } = useParams();
-    const [product, setProduct] = React.useState<ProductFull>()
-
     const navigate = useNavigate();
+    
+    const [product, setProduct] = React.useState<ProductFull>()
     const token = localStorage.getItem('token');
     
-    const options: AxiosRequestConfig = {
-        headers: {
-          'Content-Type': 'application/json',
-          'token' :  token
-        },
-      };
     useEffect(() => {
+       getProductById(id, token).then(res => setProduct(res.data)).catch(err => {
+        if (err.response.status === 401) {
+                        navigate(`/auth/login`);
+                    } else {
+                        console.error('Login on get a card', err);
+                        navigate('/not_found')
+                    }
+       })
 
-        axios.get(`http://localhost:5500/products/${id}`, options)
-            .then(response => {
-                setProduct(response.data)               
-            })
-            .catch(error => {
-                if (error.response.status === 401) {
-                    navigate(`/auth/login`);
-                }
-                console.error('Login on get a card', error);
-                navigate('/not_found')
-            });
+        
     }, [])
 
     return (
